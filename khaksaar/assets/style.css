@@ -1,4 +1,5 @@
 body {
+    
     margin: 5px 0px;
     padding: 0;
     font-family: 'Raleway', sans-serif;
@@ -133,7 +134,7 @@ a:hover {
     color: #FF9900;
 }
 .bg-image {
-    background-image: url('background.jpg'); /* Change to your image file path */
+    background-image: url('./background.jpg'); /* Change to your image file path */
     background-size: cover;
     height: 100vh;
     background-position: center;
