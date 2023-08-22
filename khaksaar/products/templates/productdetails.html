@@ -1,0 +1,28 @@
+{% extends "master.html" %}
+{% load static %}
+{% block content %}
+      <div class="product-detail">
+        <div class="product-image">
+            <img id="productImage" src="" alt="Product Image">
+        </div>
+        <div class="product-info">
+            <h2 id="productName"></h2>
+            <h2>Description:</h2><p> Dive into a world of possibilities where each item tells a unique story, where warmth meets modern aesthetics. Wrap yourself in elegance with our intricately designed products, adding a touch of sophistication to any outfit. Each product is a testament to our commitment to quality and individuality. Embrace the perfect combination of style, comfort, and affordability with our diverse selection.</p>
+            <h3>Price:</h3><p id="productPrice"></p>
+            <div class="size-chart">
+                <h3>Size Chart</h3>
+                <ul>
+                    <button><li>Small</li></button>
+                    <button><li>Medium</li></button>
+                    <button><li>Large</li></button>
+                    <button><li>Extra Large</li></button>
+                </ul>
+            </div>
+            <p></p>
+            <p></p>
+            <button>Add to Cart</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    {% endblock %}
