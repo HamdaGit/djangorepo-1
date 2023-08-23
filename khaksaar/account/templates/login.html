@@ -1,0 +1,16 @@
+{% extends "master.html" %}
+{% load static %}
+{% block content %}
+      <h1>Login</h1>
+    <form>
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required><br>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required><br>
+
+        <a href=""><button><a href="index.html">Login</a></button></a>
+    </form>
+    <p>Don't have an account? <a href="signup.html"  class="login-pg">Sign Up</a></p>
+
+    {% endblock %}
