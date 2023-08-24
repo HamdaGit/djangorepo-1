@@ -56,6 +56,4 @@ if (!isNaN(selectedProductIndex) && selectedProductIndex >= 0 && selectedProduct
     document.getElementById('productName').textContent = selectedProduct.name;
     document.getElementById('productPrice').textContent = selectedProduct.price;
 }
-else {
-    console.error('Invalid Product Index:', selectedProductIndex);
-}
+
