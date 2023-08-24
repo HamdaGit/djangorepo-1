@@ -9,8 +9,8 @@
         <label for="password">Password:</label>
         <input type="password" id="password" name="password" required><br>
 
-        <a href=""><button><a href="index.html">Login</a></button></a>
+        <a href=""><button><a href="{% url 'home' %}">Login</a></button></a>
     </form>
-    <p>Don't have an account? <a href="signup.html"  class="login-pg">Sign Up</a></p>
+      <p>Don't have an account? <a href="{% url 'Account:login' %}"  class="login-pg">Sign Up</a></p>
 
     {% endblock %}
