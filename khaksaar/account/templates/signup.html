@@ -15,8 +15,8 @@
         <label for="confirm_password">Confirm Password:</label>
         <input type="password" id="confirm_password" name="confirm_password" required><br>
 
-        <a href=""><button><a href="index.html">Sign Up</a></button></a>
+        <a href=""><button><a href="{% url 'home' %}">Sign Up</a></button></a>
     </form>
-    <p>Already have an account? <a href="login.html" class="sign-pg">Login</a></p>
+    <p>Already have an account? <a href="{% url 'Account:login' %}" class="sign-pg">Login</a></p>
 
     {% endblock %}
