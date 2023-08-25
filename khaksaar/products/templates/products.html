@@ -2,6 +2,7 @@
 {% extends "master.html" %}
 {% load static %}
 {% block content %}
+
       <div class="header">
         <h1>Our Products</h1>
        </div>
@@ -143,7 +144,7 @@
           </div>
         <div class="product">
             <a href="{% url 'Product1:productdetails' productIndex=16 %}">
-            <img src="{% static Stole.jpg.webp %}" alt="Product 17">
+            <img src="{% static 'Stole.jpg.webp' %}" alt="Product 17">
             <h2>Scarf</h2>
             <p>Price: Rs.3800</p>
             <button>Add to Cart</button>
@@ -302,8 +303,8 @@
           </a>
       </div>
 
-    
-      </div>
+       
+       </div>
 
 
       {% endblock %}
