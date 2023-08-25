@@ -9,7 +9,7 @@
         <label for="password">Password:</label>
         <input type="password" id="password" name="password" required><br>
 
-        <button type="submit">Login</button>
+        <button type="submit"><a href="{% url 'home' %}">Login</a></button>
     </form>
       <p>Don't have an account? <a href="{% url 'Account:login' %}"  class="login-pg">Sign Up</a></p>
 

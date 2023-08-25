@@ -1,42 +1,42 @@
-// Sample product data (replace with your actual data)
+
 const products = [
-    { image: "images/tshirt1.jpg", name: "T-shirt", price: "Rs.2000" },
-    { image: "images/tshirt2.jpg", name: "T-shirt", price: "Rs.2000" },
-    { image: "images/tshirt3.jpg", name: "T-shirt", price: "Rs.2000" },
-    { image: "images/tshirt4.jpg", name: "T-shirt", price: "Rs.2000" },
-    { image: "images/tshirt5.jpg", name: "T-shirt", price: "Rs.2000" },
-    { image: "images/tshirt6.jpg", name: "T-shirt", price: "Rs.2000" },
-    { image: "images/tshirt7.png", name: "T-shirt", price: "Rs.2000" },
-    { image: "images/tshirt8.png", name: "T-shirt", price: "Rs.2000" },
-    { image: "images/hoodie1.jpg", name: "Hoodie", price: "Rs.3000" },
-    { image: "images/hoodie2.png", name: "Hoodie", price: "Rs.3000" },
-    { image: "images/hoodie3.png", name: "Hoodie", price: "Rs.3000" },
-    { image: "images/hoodie4.png", name: "Hoodie", price: "Rs.3000" },
-    { image: "images/hoodie5.png", name: "Hoodie", price: "Rs.3000" },
-    { image: "images/scarf2.jpg.webp", name: "Scarf", price: "Rs.3500" },
-    { image: "images/scarf1.jpg.webp", name: "Scarf", price: "Rs.3500" },
-    { image: "images/scarf3.jpg.webp", name: "Scarf", price: "Rs.3500" },
-    { image: "images/Stole.jpg.webp", name: "Scarf", price: "Rs.3800" },
-    { image: "images/scarf5.jpg.webp", name: "Scarf", price: "Rs.3800" },
-    { image: "images/scarf7.jpg.webp", name: "Scarf", price: "Rs.3500" },
-    { image: "images/scarf8.jpg.webp", name: "Scarf", price: "Rs.3500" },
-    { image: "images/scarf9.jpg.webp", name: "Scarf", price: "Rs.3500" },
-    { image: "images/scarf10.jpg.webp", name: "Scarf", price: "Rs.3500" },
-    { image: "images/scarf11.jpg.webp", name: "Scarf", price: "Rs.3500" },
-    { image: "images/shirt1.jpg.webp", name: "Shirt", price: "Rs.2500" },
-    { image: "images/shirt2.jpg.webp", name: "Shirt", price: "Rs.2500" },
-    { image: "images/shirt3.jpg.webp", name: "Shirt", price: "Rs.3000" },
-    { image: "images/shirt4.jpg.webp", name: "Shirt", price: "Rs.3000" },
-    { image: "images/shirt5.jpg", name: "Shirt", price: "Rs.2500" },
-    { image: "images/shirt6.jpg.webp", name: "Shirt", price: "Rs.2800" },
-    { image: "images/shirt7.jpg.webp", name: "Shirt", price: "Rs.2800" },
-    { image: "images/shirt8.jpg.webp", name: "Shirt", price: "Rs.3100" },
-    { image: "images/denim1.png", name: "Denim", price: "Rs.4000" },
-    { image: "images/denim2.png", name: "Denim", price: "Rs.4000" },
-    { image: "images/denim3.png", name: "Denim", price: "Rs.4000" },
-    { image: "images/denim4.png", name: "Denim", price: "Rs.4000" },
-    { image: "images/denim5.png", name: "Denim", price: "Rs.4000" },
-    // Add more product data here
+    { image: "{% static 'tshirt1.jpg' %}", name: "T-shirt", price: "Rs.2000" },
+    { image: "{% static 'tshirt2.jpg' %}", name: "T-shirt", price: "Rs.2000" },
+    { image: "{% static 'tshirt3.jpg' %}", name: "T-shirt", price: "Rs.2000" },
+    { image: "{% static 'tshirt4.jpg' %}", name: "T-shirt", price: "Rs.2000" },
+    { image: "{% static 'tshirt5.jpg' %}", name: "T-shirt", price: "Rs.2000" },
+    { image: "{% static 'tshirt6.jpg' %}", name: "T-shirt", price: "Rs.2000" },
+    { image: "{% static 'tshirt7.png' %}", name: "T-shirt", price: "Rs.2000" },
+    { image: "{% static 'tshirt8.png' %}", name: "T-shirt", price: "Rs.2000" },
+    { image: "{% static 'hoodie1.jpg' %}", name: "Hoodie", price: "Rs.3000" },
+    { image: "{% static 'hoodie2.png' %}", name: "Hoodie", price: "Rs.3000" },
+    { image: "{% static 'hoodie3.png' %}", name: "Hoodie", price: "Rs.3000" },
+    { image: "{% static 'hoodie4.png' %}", name: "Hoodie", price: "Rs.3000" },
+    { image: "{% static 'hoodie5.png' %}", name: "Hoodie", price: "Rs.3000" },
+    { image: "{% static 'scarf2.jpg.webp' %}", name: "Scarf", price: "Rs.3500" },
+    { image: "{% static 'scarf1.jpg.webp' %}", name: "Scarf", price: "Rs.3500" },
+    { image: "{% static 'scarf3.jpg.webp' %}", name: "Scarf", price: "Rs.3500" },
+    { image: "{% static 'Stole.jpg.webp' %}", name: "Scarf", price: "Rs.3800" },
+    { image: "{% static 'scarf5.jpg.webp' %}", name: "Scarf", price: "Rs.3800" },
+    { image: "{% static 'scarf7.jpg.webp' %}", name: "Scarf", price: "Rs.3500" },
+    { image: "{% static 'scarf8.jpg.webp' %}", name: "Scarf", price: "Rs.3500" },
+    { image: "{% static 'scarf9.jpg.webp' %}", name: "Scarf", price: "Rs.3500" },
+    { image: "{% static 'scarf10.jpg.webp' %}", name: "Scarf", price: "Rs.3500" },
+    { image: "{% static 'scarf11.jpg.webp' %}", name: "Scarf", price: "Rs.3500" },
+    { image: "{% static 'shirt1.jpg.webp' %}", name: "Shirt", price: "Rs.2500" },
+    { image: "{% static 'shirt2.jpg.webp' %}", name: "Shirt", price: "Rs.2500" },
+    { image: "{% static 'shirt3.jpg.webp' %}", name: "Shirt", price: "Rs.3000" },
+    { image: "{% static 'shirt4.jpg.webp' %}", name: "Shirt", price: "Rs.3000" },
+    { image: "{% static 'shirt5.jpg' %}", name: "Shirt", price: "Rs.2500" },
+    { image: "{% static 'shirt6.jpg.webp' %}", name: "Shirt", price: "Rs.2800" },
+    { image: "{% static 'shirt7.jpg.webp' %}", name: "Shirt", price: "Rs.2800" },
+    { image: "{% static 'shirt8.jpg.webp' %}", name: "Shirt", price: "Rs.3100" },
+    { image: "{% static 'denim1.png' %}", name: "Denim", price: "Rs.4000" },
+    { image: "{% static 'denim2.png' %}", name: "Denim", price: "Rs.4000" },
+    { image: "{% static 'denim3.png' %}", name: "Denim", price: "Rs.4000" },
+    { image: "{% static 'denim4.png' %}", name: "Denim", price: "Rs.4000" },
+    { image: "{% static 'denim5.png' %}", name: "Denim", price: "Rs.4000" },
+    
 ];
 
 
@@ -55,5 +55,8 @@ if (!isNaN(selectedProductIndex) && selectedProductIndex >= 0 && selectedProduct
     document.getElementById('productImage').src = selectedProduct.image;
     document.getElementById('productName').textContent = selectedProduct.name;
     document.getElementById('productPrice').textContent = selectedProduct.price;
+
+    console.log('Product details updated:', selectedProduct);
+
 }
 
