@@ -231,10 +231,8 @@ a:hover {
     padding: 20px;
     border: 1px solid #ccc;
 }
-.product-image img {
-    max-width: 100%;
-    height: auto;
-}
+
+
 .product-info {
     margin-left: 20px;
 }
@@ -264,4 +262,25 @@ a:hover {
 {
     font-size: 1.6em;
     margin-right: 5px;
-}
+}  
+.product-image img {
+    width: 100%; 
+    height: auto; 
+    max-height: 400px; 
+    object-fit: cover;
+ }
+  
+  
+  
+.size-chart ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+.size-chart button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-right: 10px;
+  }
+  
