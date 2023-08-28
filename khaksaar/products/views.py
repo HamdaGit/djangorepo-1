@@ -2,9 +2,9 @@ from django.shortcuts import render  # Import your sample product data from the 
 from .models import Product
 
 def product_list(request):
-    products = Product.objects.all()
+    product = Product.objects.all()
     context = {
-        'products': Product,  # Use your sample product data from the products module
+        'products': product,  # Use your sample product data from the products module
     }
     return render(request, 'products.html', context)
 
