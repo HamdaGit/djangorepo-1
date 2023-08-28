@@ -1,4 +1,4 @@
-from django.shortcuts import render  # Import your sample product data from the products module
+from django.shortcuts import render, get_object_or_404  # Import your sample product data from the products module
 from .models import Product
 
 def product_list(request):
@@ -9,9 +9,10 @@ def product_list(request):
     return render(request, 'products.html', context)
 
 def productdetails(request, productIndex):
-    products = Product.objects.all()
-    if productIndex >= 0:
-        
-      return render(request, 'productdetails.html')
-        
+    product = Product.objects.all()
+    product = get_object_or_404(Product, pk=productIndex)
+    context = {
+        'product': product,
+    }
+    return render(request, 'productdetails.html', context)
         
