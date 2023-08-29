@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Khaksaar</title>
-    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="/static/style.css?{% now "U" %}"/>
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.4.2/css/all.css">
 
@@ -16,3 +16,4 @@
     {% endblock %}
 </body>
 </html>
+
