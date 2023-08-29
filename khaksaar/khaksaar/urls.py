@@ -13,6 +13,7 @@ urlpatterns = [
     path("home/", include('contact.urls')),
     path("home/", include('about.urls')),
     path("home/", include('account.urls')),
+    path("home/", include('cart.urls')),
 ]
 
 # Serve media files during development

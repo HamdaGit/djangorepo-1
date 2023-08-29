@@ -3,7 +3,7 @@
 {% load static %}
 {% block content %}
 
-      <div class=“product-detail”>
+    <div class=“product-detail”>
         <div class=“product-image”>
             <img id="productImage" src="{{ product.image.url }}" alt="{{ product.name }}">
         </div>
@@ -11,18 +11,23 @@
             <h2 id="productName">{{ product.name }}</h2>
             <h2>Description:</h2><p> Dive into a world of possibilities where each item tells a unique story, where warmth meets modern aesthetics. Wrap yourself in elegance with our intricately designed products, adding a touch of sophistication to any outfit. Each product is a testament to our commitment to quality and individuality. Embrace the perfect combination of style, comfort, and affordability with our diverse selection.</p>
             <h3>Price:</h3><p id="productPrice">Rs.{{ product.price }}</p>
-            <div class=“size-chart”>
-                <h3>Size Chart</h3>
-                <ul>
-                    <button><li>Small</li></button>
-                    <button><li>Medium</li></button>
-                    <button><li>Large</li></button>
-                    <button><li>Extra Large</li></button>
-                </ul>
-            </div>
-            <p></p>
-            <p></p>
-            <button>Add to Cart</button>
+            <form method="POST" action="{% url 'cart:add_to_cart' product.id %}">
+                {% csrf_token %}
+                <!-- Other product details here -->
+                <div class="size-chart">
+                    <h3>Size Chart</h3>
+                    <label for="size">Select Size:</label>
+                    <select name="size" id="size">
+                        <option value="Small">Small</option>
+                        <option value="Medium">Medium</option>
+                        <option value="Large">Large</option>
+                        <option value="Extra Large">Extra Large</option>
+                    </select>
+                </div>
+                <button type="submit">Add to Cart</button>
+            </form>
+            
+            
         </div>
     </div>
     
