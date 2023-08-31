@@ -6,7 +6,7 @@ from .models import CartItem, Cart
 
 @admin.register(CartItem)
 class CartItemAdmin(admin.ModelAdmin):
-    list_display = ('user', 'product', 'quantity')
+    list_display = ('user', 'product', 'quantity', 'size')
     # Add more fields if needed
 
 @admin.register(Cart)

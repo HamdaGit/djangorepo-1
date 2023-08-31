@@ -13,6 +13,7 @@ def productdetails(request, productIndex):
     product = get_object_or_404(Product, pk=productIndex)
     context = {
         'product': product,
+        'productIndex': productIndex,
     }
     return render(request, 'productdetails.html', context)
         
