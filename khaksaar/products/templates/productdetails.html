@@ -11,7 +11,7 @@
             <h2 id="productName">{{ product.name }}</h2>
             <h2>Description:</h2><p> Dive into a world of possibilities where each item tells a unique story, where warmth meets modern aesthetics. Wrap yourself in elegance with our intricately designed products, adding a touch of sophistication to any outfit. Each product is a testament to our commitment to quality and individuality. Embrace the perfect combination of style, comfort, and affordability with our diverse selection.</p>
             <h3>Price:</h3><p id="productPrice">Rs.{{ product.price }}</p>
-            <form method="POST" action="{% url 'cart:add_to_cart' product.id %}">
+            <form method="POST" action="{% url 'cart:add_to_cart' productIndex=product.id %}">
                 {% csrf_token %}
                 <!-- Other product details here -->
                 <div class="size-chart">

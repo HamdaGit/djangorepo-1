@@ -11,8 +11,9 @@
             <img src="{% static 'khaklogo.png' %}">
         <ul>
             <li><a href="{% url 'Account:account' %}"><i class="fa-solid fa-user"></i></a></li>
-            <li><a href="{% url 'cart:add_to_cart' product_id=product.id %}"><i class="fas fa-cart-shopping"></i></a></li>
-
+            {% for product in products %}
+            <li><a href="{% url 'cart:add_to_cart' productIndex=product.id %}"><i class="fas fa-cart-shopping"></i></a></li>
+            {% endfor %}
 
         </ul>
 

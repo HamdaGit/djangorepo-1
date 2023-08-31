@@ -1,13 +1,14 @@
 from django.shortcuts import redirect, render
 from django.http import HttpResponseNotAllowed
+from django.contrib.auth.decorators import login_required
 from products.models import Product
 from .models import Cart, CartItem
 
-def add_to_cart(request, product_id):
+def add_to_cart(request, productIndex):
     if request.method == 'POST':
         user = request.user
         size = request.POST.get('size')
-        product = Product.objects.get(pk=product_id)
+        product = Product.objects.get(pk=productIndex)
         cart, created = Cart.objects.get_or_create(user=user)
         
         # Create or update cart item
