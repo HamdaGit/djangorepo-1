@@ -1,22 +1,35 @@
 {% extends "master.html" %}
 {% load static %}
-
 {% block content %}
     <h1>Your Cart</h1>
-    
-    {% if cart_items %}
+    {% if cart.items %}
+    <p>Number of items in the cart: {{ cart.items.count }}</p>
         <ul>
-            {% for item in cart_items %}
-                <li>
-                    <img src="{{ item.product.image.url }}" alt="{{ item.product.name }}">
-                    <h3>{{ item.product.name }}</h3>
-                    <p>Price: Rs.{{ item.product.price }}</p>
-                    <p>Quantity: {{ item.quantity }}</p>
-                    <p>Size: {{ item.size }}</p>
-                </li>
+            {% for item in cart.items.all %}
+            <li>
+                <img src="{{ item.product.image.url }}" alt="{{ item.product.name }}">
+                <h3>{{ item.product.name }}</h3>
+                <p>Price: Rs.{{ item.product.price }}</p>
+                <p>Size: {{ item.size }}</p>
+                <p>Quantity: {{ item.quantity }}</p>
+                <p>Total Price: Rs.{{ item.total_price }}</p>
+            </li>
             {% endfor %}
         </ul>
-        <p>Total: Rs.{{ total_price }}</p>
+        <p>Total Cart Price: Rs.{{ cart.total_price }}</p>
+        
+        <!-- Add a form for checkout or continue shopping -->
+        <form method="post" action="">
+          {% csrf_token %}
+            <button type="submit">Checkout</button>
+        </form>
+        
+        <!-- Add a link to continue shopping or clear the cart -->
+        <a href="{% url 'Product1:product_list' %}">Continue Shopping</a>
+        <form method="post" action="">
+            {% csrf_token %}
+            <button type="submit">Clear Cart</button>
+        </form>
     {% else %}
         <p>Your cart is empty.</p>
     {% endif %}

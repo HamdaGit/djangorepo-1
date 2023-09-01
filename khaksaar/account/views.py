@@ -8,8 +8,9 @@ from django.views.decorators.csrf import ensure_csrf_cookie
 # Create your views here.
 def account(request):
     return render(request, 'profile.html' )
-@ensure_csrf_cookie
 
+
+@ensure_csrf_cookie
 def signup(request):
     if request.method == 'POST':
       form = CustomUserCreationForm(request.POST)
