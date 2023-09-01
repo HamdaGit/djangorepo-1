@@ -3,23 +3,19 @@
 
 {% block content %}
       <h1>Sign Up</h1>
-    <form action="{% url 'home' %}" method="post">
+    <form action="{% url 'Account:signup' %}" method="post">
        {% csrf_token %}
-       <label for="username">Username:</label>
-       {{ form.username }}
-       <br>
-  
-       <label for="email">Email:</label>
-       {{ form.email }}
-       <br>
-  
-       <label for="password1">Password:</label>
-       {{ form.password1 }}
-       <br>
-  
-       <label for="password2">Confirm Password:</label>
-       {{ form.password2 }}
-       <br>
+       <label for="{{ form.username.id_for_label }}">Username:</label>
+        {{ form.username }}
+
+        <label for="{{ form.email.id_for_label }}">Email:</label>
+        {{ form.email }}
+
+        <label for="{{ form.password1.id_for_label }}">Password:</label>
+        {{ form.password1 }}
+
+        <label for="{{ form.password2.id_for_label }}">Confirm Password:</label>
+        {{ form.password2 }}
        <button type="submit">Sign up</button>
     </form>
     <p>Already have an account? <a href="{% url 'Account:login' %}" class="sign-pg">Login</a></p>
