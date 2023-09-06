@@ -4,7 +4,7 @@ from django.db.models import Sum
 from products.models import Product
 
 class CartItem(models.Model):
-    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='cart_items')
     quantity = models.PositiveIntegerField(default=1)
     size = models.CharField(max_length=20, default="") 
 
@@ -13,7 +13,7 @@ class CartItem(models.Model):
 
 class Cart(models.Model):
     user = models.ForeignKey(User, null=True, blank=True, on_delete=models.CASCADE)
-    session_id = models.CharField(max_length=32, null=True, blank=True)  # Store session ID for anonymous users
+    session_id = models.CharField(max_length=128, null=True, blank=True)  # Store session ID for anonymous users
     items = models.ManyToManyField(CartItem, blank=True)
 
     def total_price(self):
