@@ -2,7 +2,8 @@
 {% load static %}
 {% block content %}
       <h1>Login</h1>
-    <form>
+      <form  action="{% url 'Account:login' %}" method="post">
+        {% csrf_token %}
         <label for="username">Username:</label>
         <input type="text" id="username" name="username" required><br>
 
@@ -11,6 +12,6 @@
 
         <button type="submit"><a href="{% url 'home' %}">Login</a></button>
     </form>
-      <p>Don't have an account? <a href="{% url 'Account:login' %}"  class="login-pg">Sign Up</a></p>
+      <p>Don't have an account? <a href="{% url 'Account:signup' %}"  class="login-pg">Sign Up</a></p>
 
     {% endblock %}

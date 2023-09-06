@@ -228,16 +228,36 @@ a:hover {
 /* Styles for the product detail page */
 .product-detail {
     display: flex;
+    justify-content: space-between;
+    margin: 20px;
     padding: 20px;
-    border: 1px solid #ccc;
+    border: 1px solid #ddd;
 }
-
-
+.yc{
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+.cs{
+    text-align: center;
+    color: #333;
+}
+.cs a {
+    color: lightskyblue;
+}
 .product-info {
+    flex: 1;
     margin-left: 20px;
 }
 .size-chart {
     margin-top: 20px;
+}
+label {
+    font-size: 16px;
+}
+
+select {
+    font-size: 16px;
+    padding: 5px;
 }
 .size-chart h3 {
     font-size: 1.2em;
@@ -263,11 +283,18 @@ a:hover {
     font-size: 1.6em;
     margin-right: 5px;
 }  
+.fas{
+    font-size: 1.6em;
+    margin-right: 5px;
+}
+
+
 .product-image img {
     width: 100%; 
     height: auto; 
     max-height: 400px; 
     object-fit: cover;
+    
  }
 .size-chart button {
     background: none;
@@ -348,4 +375,3 @@ a:hover {
     background-color: #555;
 }
 
-  

@@ -21,7 +21,11 @@ def add_to_cart(request, productIndex):
 
         # Create or update cart item
         cart_item, created = CartItem.objects.get_or_create(cart=cart, product=product, size=size)
-        if not created:
+        if created:
+            # If a new CartItem was created, set its quantity to 1
+            cart_item.quantity = 1
+        else:
+            # If the CartItem already exists, increase its quantity by 1
             cart_item.quantity += 1
             cart_item.save()
 
@@ -29,10 +33,9 @@ def add_to_cart(request, productIndex):
         if not request.user.is_authenticated:
             request.session['cart_id'] = cart.session_id
         
-        print("Cart:", cart)
-        print("Cart Items:", cart.items.all())
+        cart_items = CartItem.objects.filter(cart=cart)
 
-        return render(request, 'cart.html', {'cart': cart, 'cart_items': cart_item})
+        return render(request, 'cart.html', {'cart': cart, 'cart_items': cart_items})
 
     else:
         return HttpResponseNotAllowed(['POST'])
