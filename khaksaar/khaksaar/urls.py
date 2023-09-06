@@ -8,7 +8,8 @@ from .import views
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("home/", views.index, name="home"),
+    path('home/', views.index, name='home'),
+    path("home/<int:productIndex>/", views.index, name='home'),
     path("home/", include('products.urls')),
     path("home/", include('contact.urls')),
     path("home/", include('about.urls')),

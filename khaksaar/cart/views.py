@@ -29,8 +29,10 @@ def add_to_cart(request, productIndex):
         if not request.user.is_authenticated:
             request.session['cart_id'] = cart.session_id
         
+        print("Cart:", cart)
+        print("Cart Items:", cart.items.all())
 
-        return render(request, 'cart.html', {'cart': cart})
+        return render(request, 'cart.html', {'cart': cart, 'cart_items': cart_item})
 
     else:
         return HttpResponseNotAllowed(['POST'])
