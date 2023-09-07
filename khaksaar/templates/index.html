@@ -12,7 +12,7 @@
         <ul>
             <li><a href="{% url 'Account:account' %}"><i class="fa-solid fa-user"></i></a></li>
            
-            <li><a href="{% url 'cart:add_to_cart' productIndex=0 %}"><i class="fas fa-cart-shopping"></i></a></li>
+            <li><a href="{% url 'cart:add_to_cart' productIndex=0 %}"><i class="fas fa-cart-shopping"></i>{{ cart_item_count }}</a></li>
             
         </ul>
 
