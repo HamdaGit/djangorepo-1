@@ -24,6 +24,7 @@ def signup(request):
         form.save()
         return redirect(reverse_lazy('home'))
     else:
+     
       form = CustomUserCreationForm()
     return render(request, "signup.html", {'form': form})
 
