@@ -4,6 +4,7 @@ from django.urls import reverse_lazy
 from django.contrib.auth.forms import UserCreationForm
 from django import forms
 from django.contrib.auth import get_user_model
+from django.views.decorators.csrf import csrf_protect
 from django.contrib.auth import authenticate, login
 
 
@@ -13,7 +14,7 @@ def account(request):
 
 
 User = get_user_model()
-
+@csrf_protect
 def signup(request):
     if request.method == 'POST':
       print(request.POST)

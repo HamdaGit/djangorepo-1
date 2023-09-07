@@ -3,10 +3,13 @@ from django.contrib.auth.models import User
 from django.db.models import Sum
 from products.models import Product
 
+
+
 class CartItem(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='cart_items')
     quantity = models.PositiveIntegerField(default=1)
     size = models.CharField(max_length=20, default="") 
+    cart = models.ForeignKey('Cart', on_delete=models.CASCADE, related_name='cart_items', default=None, null=True, blank=True)
 
     def total_price(self):
         return self.product.price * self.quantity
@@ -14,7 +17,7 @@ class CartItem(models.Model):
 class Cart(models.Model):
     user = models.ForeignKey(User, null=True, blank=True, on_delete=models.CASCADE)
     session_id = models.CharField(max_length=128, null=True, blank=True)  # Store session ID for anonymous users
-    items = models.ManyToManyField(CartItem, blank=True)
+    items = models.ManyToManyField(CartItem, blank=True, related_name='carts')
 
     def total_price(self):
         return self.items.aggregate(Sum('product__price'))['product__price__sum'] or 0
