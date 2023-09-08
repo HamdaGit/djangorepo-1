@@ -17,10 +17,13 @@ class CartItem(models.Model):
 class Cart(models.Model):
     user = models.ForeignKey(User, null=True, blank=True, on_delete=models.CASCADE)
     session_id = models.CharField(max_length=128, null=True, blank=True)  # Store session ID for anonymous users
-    items = models.ManyToManyField(CartItem, blank=True, related_name='carts')
+   
+    def get_cart_items(self):
+        return CartItem.objects.filter(cart=self)
 
     def total_price(self):
-        return self.items.aggregate(Sum('product__price'))['product__price__sum'] or 0
+        cart_items = self.get_cart_items()
+        return  cart_items.aggregate(Sum('product__price'))['product__price__sum'] or 0
 
     def __str__(self):
         if self.user:

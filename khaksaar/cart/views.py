@@ -27,12 +27,14 @@ def add_to_cart(request, productIndex):
         if not created:
             cart_item.quantity += 1
             cart_item.save()
+
+
+        cart_items = cart.get_cart_items()
         
-        cart_items = cart.items.all()
-        print("Cart Item:", cart_items)
+        print("Cart Item:", cart_item)
         print("Cart:", cart)
         print("Form Data:", request.POST)
-        print("Cart Items:", cart.items.all())
+        print("Cart Items:", cart_items)
         print("Product:", product)
         print("Size:", size)
 

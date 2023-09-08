@@ -19,6 +19,7 @@ def signup(request):
     if request.method == 'POST':
       print(request.POST)
       form = CustomUserCreationForm(request.POST)
+    
       print(form.is_valid())
       if form.is_valid():
         form.save()
