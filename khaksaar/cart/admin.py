@@ -13,7 +13,7 @@ class CartItemAdmin(admin.ModelAdmin):
 @admin.register(Cart)
 class CartAdmin(admin.ModelAdmin):
     list_display = ('user', 'session_id', 'total_price')  # Display both user and session_id
-    filter_horizontal = ['items']
+ 
 
     def user(self, obj):
         if obj.user:
