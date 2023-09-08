@@ -9,7 +9,8 @@ def cart_count(request):
         cart, _ = Cart.objects.get_or_create(user=request.user)
     elif request.session.get('cart_id'):
         cart, _ = Cart.objects.get_or_create(session_id=request.session['cart_id'])
-
-    cart_item_count = cart.items.count() if cart else 0
+    
+   
+    cart_item_count = cart.cart_items.count() if cart else 0
 
     return {'cart_item_count': cart_item_count}
