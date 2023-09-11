@@ -23,7 +23,7 @@ class Cart(models.Model):
 
     def total_price(self):
         cart_items = self.get_cart_items()
-        return  cart_items.aggregate(Sum('product__price'))['product__price__sum'] or 0
+        return sum(item.total_price() for item in cart_items)
 
     def __str__(self):
         if self.user:

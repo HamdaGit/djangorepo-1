@@ -234,8 +234,9 @@ a:hover {
     border: 1px solid #ddd;
 }
 .yc{
-    margin-top: 70px;
-    margin-bottom: 30px;
+    font-size: 24px;
+    margin-top: 40px;
+    margin-bottom: 70px;
 }
 .cs{
     text-align: center;
@@ -243,6 +244,7 @@ a:hover {
 }
 .cs a {
     color: lightskyblue;
+    font-weight: bold;
 }
 .product-info {
     flex: 1;
@@ -369,9 +371,57 @@ select {
     cursor: pointer;
     font-weight: bold;
     transition: background-color 0.3s ease-in-out;
+    margin-left: 10px;
 }
 
 .checkout-button:hover {
     background-color: #555;
 }
+/* cart.css */
 
+
+/* Style the list of cart items */
+ul.cart-list {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap into the next row */
+    justify-content: space-between; /* Space evenly between items */
+    margin-left: 230px;
+    margin-right: 230px;
+}
+
+ul.cart-list li {
+    width: calc(33.33% - 5px);/* Display two products in a row with a small gap in between */
+    margin-bottom: 20px;
+    border: 1px solid #555;
+    padding: 5px;
+    display: flex;
+    flex-direction: column; /* Display details in separate lines */
+    align-items: center;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+/* Style the product image */
+ul.cart-list li img {
+    max-width: 170px; /* Ensure the image fits within the container */
+    margin-bottom: 10px; /* Space between image and details */
+}
+
+/* Style the product details */
+ul.cart-list li h3 {
+    font-size: 18px;
+    margin: 0;
+}
+
+/* Style the price and quantity */
+ul.cart-list li p {
+    font-size: 16px;
+    margin: 5px 0;
+}
+
+/* Style the total price */
+ul.cart-list li .total-price {
+    font-weight: bold;
+}
