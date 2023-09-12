@@ -236,7 +236,7 @@ a:hover {
 .yc{
     font-size: 24px;
     margin-top: 40px;
-    margin-bottom: 70px;
+    margin-bottom: 60px;
 }
 .cs{
     text-align: center;
@@ -361,22 +361,29 @@ select {
     font-weight: bold;
     color: #333;
 }
-
-.checkout-button {
+/* Styles for Checkout and Clear Cart buttons */
+.cart-button {
+    max-width: 150px; /* Reduce the maximum width */
+    margin: 0 auto; /* Center the buttons horizontally */
+    text-align: center; /* Center the button text */
+    padding: 9px 17px;
+    border: none;
+    border-radius: 8px;
     background-color: #333;
     color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
     font-weight: bold;
+    cursor: pointer;
     transition: background-color 0.3s ease-in-out;
-    margin-left: 10px;
+    display: block; /* Ensure the button takes the full width available */
+    text-align: center;
 }
 
-.checkout-button:hover {
+.cart-button:hover {
     background-color: #555;
 }
+
+
+
 /* cart.css */
 
 
@@ -424,4 +431,10 @@ ul.cart-list li p {
 /* Style the total price */
 ul.cart-list li .total-price {
     font-weight: bold;
+}
+.rm{
+    color: lightskyblue;
+}
+.button-container {
+    text-align: center; /* Center-align its children */
 }
