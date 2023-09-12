@@ -38,7 +38,6 @@ def add_to_cart(request, productIndex):
         print("Cart Items:", cart_items)
         print("Product:", product)
         print("Size:", size)
-
     
         return render(request, 'cart.html', {'cart': cart, 'cart_items': cart_items, 'productindex':productIndex})
     else:
@@ -47,13 +46,29 @@ def add_to_cart(request, productIndex):
 
 def remove_from_cart(request, productIndex):
     if request.method == 'POST':
-       cart_item = get_object_or_404(CartItem, pk=productIndex)
-       if cart_item.cart and hasattr(cart_item.cart, 'session_id'):
-       # Check if the item belongs to the current session's cart
-          session_id = request.session.session_key
-          if cart_item.cart.session_id == session_id:
-             cart_item.delete()
-             return redirect('add_to_cart')  # Redirect back to the cart page
- 
+        cart_item = get_object_or_404(CartItem, pk=productIndex)
+        if cart_item.cart and hasattr(cart_item.cart, 'session_id'):
+            # Check if the item belongs to the current session's cart
+            session_id = request.session.session_key
+            if cart_item.cart.session_id == session_id:
+                cart_item.delete()
+        return redirect('cart:cart')  # Redirect back to the cart page
+    elif request.method == 'GET':
+        # Handle GET request for removing items using links.
+        cart_item = get_object_or_404(CartItem, pk=productIndex)
+        if cart_item.cart and hasattr(cart_item.cart, 'session_id'):
+            # Check if the item belongs to the current session's cart
+            session_id = request.session.session_key
+            if cart_item.cart.session_id == session_id:
+                cart_item.delete()
+        return redirect('cart:cart')  # Redirect back to the cart page
     return HttpResponseForbidden()
+
+def checkout(request):
+     
+     return render(request, 'checkout.html')
+
+def cart(request):
+    
+    return render(request, 'cart.html')
 
