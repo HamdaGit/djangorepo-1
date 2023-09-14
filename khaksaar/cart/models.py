@@ -19,7 +19,7 @@ class CartManager(models.Manager):
         session_id = request.session.session_key
         if not session_id:
             request.session.create()
-            session_id = request.session.session_key
+            session_id = request.session.session_key 
 
         cart, created = self.get_or_create(session_id=session_id)
         return cart
