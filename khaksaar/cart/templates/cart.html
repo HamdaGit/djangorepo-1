@@ -17,7 +17,7 @@
                 <p>Quantity: {{ item.quantity }}</p>
                 <p>Total Price: Rs.{{ item.total_price }}</p>
                 <p></p>
-                <a href="{% url 'cart:remove_from_cart' item.id %}" class="rm" >Remove</a>
+                <p><a href="javascript:void(0);" onclick="removeFromCart('{{ item.product.id }}');" class="rm">Remove</a></p>
             </li>
             {% endfor %}
         </ul>
@@ -34,6 +34,25 @@
       
         <button type="submit"><a href="{% url 'Product1:product_list' %}" class="cart-button">Clear Cart</a></button>
         </div>
+        <!-- Add this JavaScript function to your template -->
+        <script>
+        function removeFromCart(productIndex) {
+            fetch("{% url 'cart:remove_from_cart' 0 %}".replace('0', productIndex), {
+                 method: 'POST',
+                 headers: {
+                 'X-CSRFToken': "{{ csrf_token }}",
+                 },
+             })
+            .then(response => {
+                if (response.status === 200) {
+                // Reload the cart page or update the cart display
+                    location.reload();
+                 }
+            })
+            .catch(error => console.error('Error:', error));
+         }
+        </script>
+
     {% else %}
         <p>Your cart is empty.</p>
     {% endif %}

@@ -47,25 +47,22 @@ def add_to_cart(request, productIndex):
 def remove_from_cart(request, productIndex):
     if request.method == 'POST':
         cart_item = get_object_or_404(CartItem, pk=productIndex)
-        if cart_item.cart and hasattr(cart_item.cart, 'session_id'):
-            session_id = request.session.session_key
-            if cart_item.cart.session_id == session_id:
-                cart_item.delete()
-        return redirect('cart:cart')  # Redirect back to the cart page
-    
-    # GET request handling removed for now
-    
-    return HttpResponseForbidden()
+        
+        if cart_item.cart.session_id == request.session.session_key:
+            cart_item.delete()
+
+        return redirect('cart:cart')  
+    return redirect('cart:cart') 
+
 def checkout(request):
     if request.method == 'POST':
-         # Get the cart associated with the current session
+
         cart = Cart.objects.get_cart(request)
         cart_items = cart.get_cart_items()
 
-        # Calculate the total price
         total_price = sum(item.total_price() for item in cart_items)
 
-        # Create an instance of the Order model with the collected data
+      
         order = Order(
             user=request.user if request.user.is_authenticated else None,
             billing_name=request.POST.get('billing_name'),
@@ -74,15 +71,11 @@ def checkout(request):
             shipping_name=request.POST.get('shipping_name'),
             shipping_address=request.POST.get('shipping_address'),
             shipping_phone = request.POST.get('shipping_phone'),
-            # Add more fields as needed
-            total_price=total_price  # You'll need to calculate the total price
+            total_price=total_price  
         )
-
-        # Save the order to the database
         order.save()
 
-        # Redirect to a thank-you page or some other confirmation page
-        return render(request, 'order.html',{'order': order})  # Adjust the URL pattern name as needed
+        return render(request, 'order.html',{'order': order})  
 
     else:
         # Handle the GET request to display the checkout form
