@@ -16,7 +16,7 @@ def add_to_cart(request, productIndex):
         session_id = request.session.session_key
         if not session_id:
             request.session.create()
-            session_id = request.session.session_key
+        session_id = request.session.session_key
 
         print("Session ID:", session_id)
         
@@ -47,8 +47,9 @@ def add_to_cart(request, productIndex):
 def remove_from_cart(request, productIndex):
     if request.method == 'POST':
         cart_item = get_object_or_404(CartItem, pk=productIndex)
+        cart = cart_item.cart
         
-        if cart_item.cart.session_id == request.session.session_key:
+        if cart and cart.session_id == request.session.session_key:
             cart_item.delete()
 
         return redirect('cart:cart')  
