@@ -4,6 +4,8 @@ from products.models import Product
 from .models import Cart, CartItem,Order
 from django.contrib.sessions.models import Session
 from django.http import HttpResponseForbidden
+from django.http import JsonResponse
+
 
 # cart/views.py
 
@@ -48,12 +50,12 @@ def remove_from_cart(request, productIndex):
     if request.method == 'POST':
         cart_item = get_object_or_404(CartItem, pk=productIndex)
         cart = cart_item.cart
-        
+
+        # Ensure that the cart item and cart are associated with the current session
         if cart and cart.session_id == request.session.session_key:
             cart_item.delete()
 
-        return redirect('cart:cart')  
-    return redirect('cart:cart') 
+    return redirect('cart:cart')
 
 def checkout(request):
     if request.method == 'POST':
@@ -87,7 +89,7 @@ def checkout(request):
 
 def cart(request):
     cart = Cart.objects.get_cart(request)
-    cart_items = cart.get_cart_items()
+    cart_items = CartItem.objects.filter(cart=cart)
     return render(request, 'cart.html', {'cart': cart, 'cart_items': cart_items})
 
 def order(request):
