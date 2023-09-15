@@ -51,11 +51,12 @@
             {% for item in cart_items %}
             <li>
                 <img src="{{ item.product.image.url }}" alt="{{ item.product.name }}">
+                <div>
                 <h3>{{ item.product.name }}</h3>
-                <p>Price: Rs.{{ item.product.price }}</p>
-                <p>Size: {{ item.size }}</p>
-                <p>Quantity: {{ item.quantity }}</p>
+                <p>Price: Rs.{{ item.product.price }} {{"  "}}  Size: {{ item.size }} {{"    "}}    Quantity: {{ item.quantity }}</p>
                 <p>Total Price: Rs.{{ item.total_price }}</p>
+                </div>
+                
             </li>
             {% endfor %}
         </ul>

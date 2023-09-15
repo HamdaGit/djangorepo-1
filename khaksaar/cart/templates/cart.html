@@ -16,8 +16,10 @@
                 <p>Size: {{ item.size }}</p>
                 <p>Quantity: {{ item.quantity }}</p>
                 <p>Total Price: Rs.{{ item.total_price }}</p>
+                
                 <p></p>
-                <p><a href="javascript:void(0);" data-remove-url="{% url 'cart:remove_from_cart' item.id %}" class="rm">Remove</a></p>
+                <p><a href="javascript:void(0);" onclick="removeFromCart('{{ item.id }}');" class="rm">Remove</a></p>
+
             </li>
             {% endfor %}
         </ul>
@@ -26,7 +28,6 @@
         <div class="button-container">
         <button type="submit"><a href="{% url 'cart:checkout' %}" class="cart-button">Checkout</a></button>
      
-        <!-- Add a link to continue shopping or clear the cart -->
         <p></p>   
         
         <p>or you want to</p>
@@ -34,25 +35,30 @@
       
         <button type="submit"><a href="{% url 'Product1:product_list' %}" class="cart-button">Clear Cart</a></button>
         </div>
-        <!-- Add this JavaScript function to your template -->
+      
         <script>
-        function removeFromCart(productIndex) {
-            const removeUrl = document.querySelector(`[data-remove-url="${productIndex}"]`).getAttribute('data-remove-url');
-    
-            fetch(removeUrl, {
-                method: 'POST',
-                headers: {
-                'X-CSRFToken': "{{ csrf_token }}",
-                },
-            })
-            .then(response => {
-                if (response.status === 200) {
-                // Reload the cart page or update the cart display
-                location.reload();
+       
+        function removeFromCart(itemId) {
+               const removeUrl = document.querySelector(`[data-remove-url="${itemId}"]`).getAttribute('data-remove-url');
+
+               fetch(removeUrl, {
+                  method: 'POST',
+                  headers: {
+                  'X-CSRFToken': "{{ csrf_token }}",
+                   },
+                })
+                .then(response => {
+                   if (response.status === 200) {
+                   // Reload the cart page or update the cart display
+                       location.reload();
+                 } else {
+                        console.error('Error:', response.status);
+                    }
+                 })
+                .catch(error => console.error('Error:', error));
                 }
-            })
-            .catch(error => console.error('Error:', error));
-        }
+
+
 
         </script>
 
