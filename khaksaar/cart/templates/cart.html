@@ -18,7 +18,9 @@
                 <p>Total Price: Rs.{{ item.total_price }}</p>
                 
                 <p></p>
-                <p><a href="javascript:void(0);" onclick="removeFromCart('{{ item.id }}');" class="rm">Remove</a></p>
+                <p><a href="javascript:void(0);" data-remove-url="{% url 'cart:remove_from_cart' item.id %}" class="rm">Remove</a></p>
+
+
 
             </li>
             {% endfor %}
@@ -39,12 +41,13 @@
         <script>
        
         function removeFromCart(itemId) {
+              console.log('Remove URL:', removeUrl);
                const removeUrl = document.querySelector(`[data-remove-url="${itemId}"]`).getAttribute('data-remove-url');
 
                fetch(removeUrl, {
                   method: 'POST',
                   headers: {
-                  'X-CSRFToken': "{{ csrf_token }}",
+                  'X-CSRFToken':  "{{csrf_token}}",
                    },
                 })
                 .then(response => {
