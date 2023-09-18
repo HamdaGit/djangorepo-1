@@ -54,6 +54,7 @@ def remove_from_cart(request, productIndex):
         # Ensure that the cart item and cart are associated with the current session
         if cart and cart.session_id == request.session.session_key:
             cart_item.delete()
+            print(f"Removed item {productIndex} from the cart")
 
     return redirect('cart:cart')
 
