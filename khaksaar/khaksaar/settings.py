@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-3l)v++wf+($_4b9&5=jiaxqh4xfcd#yo2=+&k=u)45b0w%(+*%
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['.vercel.app']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'about',
     'account',
     'cart',
+   
 ]
 
 MIDDLEWARE = [
@@ -136,6 +137,9 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+
 
 
 # Session engine (use 'django.contrib.sessions.backends.db' for database-backed sessions)
