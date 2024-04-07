@@ -1,26 +1,25 @@
-# My E-commerce App
+# Khaksaar: Pakistani Street Style Clothing E-Commerce Platform
+
+## Overview
+
+Khaksaar is a full-stack e-commerce web application developed using Python and Django. It serves as an online platform for showcasing and selling Pakistani street style clothing under the Khaksaar brand. Users can browse products, add them to the cart, and securely checkout.
 
 ## Features
 
 - User authentication and registration
-- Product catalog with search and filtering options
-- Shopping cart functionality
-- Secure payment processing
+- Product catalog with categories and detailed descriptions.
+- Shopping cart functionality with the ability to manage items.
+- Payment processing
 - Order history and tracking
-- User reviews and ratings for products
 - Admin dashboard for managing products and orders
-- Responsive design for mobile and desktop devices
+- Anonymous users can browse product catalogue and shopping cart
 
-## Django hrproject
+## Technologies Used
 
-This project serves as a web application to e-commerce app.
+- Backend: Python, Django, Django REST Framework
+- Frontend: HTML, CSS, JavaScript, Bootstrap
+- Database: SQLite
 
-## Features
-
-It consists of a polling app.
-
-
-## Installation
 
 
 
