@@ -16,8 +16,8 @@ Khaksaar is a full-stack e-commerce web application developed using Python and D
 
 ## Technologies Used
 
-- Backend: Python, Django, Django REST Framework
-- Frontend: HTML, CSS, JavaScript, Bootstrap
+- Backend: Python, Django
+- Frontend: HTML, CSS, JavaScript
 - Database: SQLite
 
 
