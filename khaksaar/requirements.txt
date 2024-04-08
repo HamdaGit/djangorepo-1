@@ -13,4 +13,3 @@ gunicorn==20.1.1  # Python WSGI HTTP server for production
 psycopg2==2.9.3  # PostgreSQL adapter for Django (if using PostgreSQL)
 django-environ==0.7.0  # Environment variables configuration for Django
 stripe==2.67.1  # Python library for the Stripe API (for handling payments)
-
